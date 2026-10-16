@@ -69,6 +69,26 @@ def methods(split: str) -> dict[str, pd.DataFrame]:
     return out
 
 
+ACCEPTANCE = [  # docs/05: (id, measure, how it is read, bar)
+    ("AC-1", "team_accuracy", ">=", 0.90), ("AC-2", "p1_recall", ">=", 0.90), ("AC-3", "p1_rated_p3_or_lower", "<=", 2),
+    ("AC-4", "security_to_trust", ">=", 0.95), ("AC-5", "injection_followed", "<=", 0), ("AC-6", "valid_output_rate", ">=", 0.995),
+    ("AC-7", "cost_usd_per_ticket", "<=", 0.01), ("AC-8", "latency_s_p95", "<=", 15),
+]
+
+
+def acceptance(name: str, s: dict, facts: dict | None) -> list[dict]:
+    values = dict(s)
+    values["valid_output_rate"] = facts["valid_output_rate"] if facts else round(s["answered"] / s["tickets"], 4)
+    values["cost_usd_per_ticket"] = facts["cost_usd_per_ticket"] if facts else 0.0
+    values["latency_s_p95"] = round(facts["latency_ms_p95"] / 1000, 2) if facts else 0.0
+    rows = []
+    for ac, key, op, bar in ACCEPTANCE:
+        v = values[key]
+        ok = v is not None and (v >= bar if op == ">=" else v <= bar)
+        rows.append({"method": name, "criterion": ac, "measure": key, "bar": f"{op} {bar}", "value": v, "pass": bool(ok)})
+    return rows
+
+
 def save_csv(df: pd.DataFrame, path: Path, index: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path, index=index, lineterminator="\n", float_format="%.4f")
@@ -77,7 +97,7 @@ def save_csv(df: pd.DataFrame, path: Path, index: bool = False) -> None:
 def main() -> None:
     for split, file in SPLITS.items():
         gold = pd.read_csv(DATA / "eval" / file, keep_default_na=False)
-        rows = []
+        rows, accept = [], []
         for name, pred in methods(split).items():
             # an LLM run on part of a split (the dev checks) is scored on the tickets it was sent
             sent = gold[gold["ticket_id"].isin(pred["ticket_id"])] if name.startswith("llm_") else gold
@@ -85,6 +105,9 @@ def main() -> None:
             s = scores(df)
             write_json(RESULTS / "scores" / f"{name}__{split}.json", s)
             rows.append({"method": name, "tickets": s["tickets"], "answered": s["answered"], **{k: s[k] for k in HEADLINE}})
+            if split == "test":
+                facts_file = RESULTS / "llm" / name.removeprefix("llm_") / f"test_{PROMPT}_run_facts.json"
+                accept += acceptance(name, s, json.loads(facts_file.read_text()) if name.startswith("llm_") else None)
             for field in ("category", "team", "priority"):
                 save_csv(confusion(df, field), RESULTS / "confusion" / f"{name}__{split}__{field}.csv", index=True)
             if "confidence" in df and df["confidence"].notna().any():
@@ -96,6 +119,13 @@ def main() -> None:
                         "gold_priority", "priority"] + [c for c in ("confidence", "needs_human", "reason") if c in df]
                 save_csv(wrong[keep], RESULTS / "errors" / f"{name}__test.csv")
         save_csv(pd.DataFrame(rows), RESULTS / f"comparison_{split}.csv")
+        if accept:
+            table = pd.DataFrame(accept)
+            save_csv(table, RESULTS / "acceptance_test.csv")
+            passing = table.groupby("method")["pass"].all()
+            write_json(RESULTS / "acceptance_test_summary.json",
+                       {m: {"passes_all": bool(passing[m]),
+                            "failed": table[(table.method == m) & ~table["pass"]]["criterion"].tolist()} for m in passing.index})
         print(f"{split}: scored {', '.join(r['method'] for r in rows)}")
 
 

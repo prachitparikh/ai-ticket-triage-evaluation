@@ -1,0 +1,8 @@
+model,round,prompt,tickets,valid_answers,team_accuracy,priority_accuracy,all_three_right,p1_recall,repeat_same_all_three
+claude-haiku-5-5,1,triage_v1,300,295,0.9633,0.7700,0.7600,0.9545,98/100
+claude-haiku-5-5,2,triage_v2,300,192,0.6400,0.6300,0.6300,0.3478,55/55
+claude-sonnet-5-5,2,triage_v2,300,251,0.8367,0.8367,0.8367,0.7391,86/86
+claude-haiku-5-5,3,triage_v2,300,299,0.9767,0.9067,0.9000,0.8261,98/100
+claude-sonnet-5-5,3,triage_v2,300,300,0.9933,0.9400,0.9400,0.7391,100/100
+claude-haiku-5-5,4,triage_v3,300,300,0.9867,0.9800,0.9700,0.9500,
+claude-sonnet-5-5,4,triage_v3,100,100,1.0000,1.0000,1.0000,1.0000,

@@ -1,0 +1,11 @@
+# Built and tested on Python 3.13. Versions are pinned because the in-house text model is
+# retrained in CI and its scores have to come out the same to the fourth decimal.
+numpy==2.5.3
+scipy==1.18.1
+pandas==3.0.5
+scikit-learn==1.9.1
+jsonschema==4.26.0
+pytest==9.1.1
+
+# Only for scripts/render_charts.py
+# matplotlib==3.11.2

@@ -5,11 +5,11 @@
 | Document ID | TRI-05 |
 | Programme | Support triage improvement (TRI) |
 | Client | Northstar Systems, Inc. (fictional) |
-| Version | 1.0 |
-| Date | 2026-10-15 |
+| Version | 1.1 |
+| Date | 2026-10-15, amended 2026-10-16 |
 | Author (role) | Senior Technical Business Analyst, Support Operations |
 | Approved by | Owen Delacroix, Director of Customer Support; Ingrid Halvorsen, Information Security Manager (AC-5, AC-6) |
-| Status | Baselined before any model run |
+| Status | Baselined before any model run; amendments listed at the end |
 
 > Fictional client; generated tickets. This plan was committed to the repository before the first model call, so the bar below was set without seeing any model results.
 
@@ -76,3 +76,16 @@ Even an option that passes will not be right every time. The pilot design (docs/
 | A model passes everything except AC-1 | Use it to suggest a team and priority to the triage agent, not to route. |
 | A model fails AC-3, AC-4 or AC-5 | Do not use it for priority or security routing in any mode. |
 | Both models pass | Prefer the cheaper one unless the larger one is clearly better on AC-2 to AC-5. |
+
+## Amendments after the baseline
+
+Version 1.0 was committed before the first model call (DEC-TRI-005). These are the places where the runs did not go as written. The acceptance criteria and their bars did not change.
+
+| # | Date | As baselined | What happened | Decision |
+|---|---|---|---|---|
+| A-1 | 16 Oct | Rule 2: temperature 0 | The Anthropic SDK in use (1.15.0) rejects a temperature argument. Both models ran at their default. Consistency was measured instead by sending 100 dev tickets twice (NFR-TRI-06). | DEC-TRI-006 |
+| A-2 | 16 Oct | Rule 2: the model must answer through the `record_triage` tool | Claude Sonnet 5.5 rejects a forced tool choice. The tool is offered to both models and the prompt says to use it. An answer without the tool counts as invalid, as before. | DEC-TRI-007 |
+| A-3 | 16 Oct | Rule 1: `triage_v1`, and a `triage_v2` if dev shows a problem | Four dev rounds, and `triage_v3` went to test. The test set was still run once per model, after v3 was frozen. | DEC-TRI-011 |
+| A-4 | 16 Oct | Data: dev and test as generated | The ticket generator was corrected twice after dev rounds showed tickets that contradicted themselves or their labels. Dev and test were regenerated each time; test had not been run. Earlier dev labels are kept in `data/eval/archive/`. | DEC-TRI-009, DEC-TRI-010 |
+| A-5 | 16 Oct | "Prefer the cheaper one unless the larger one is clearly better on AC-2 to AC-5" | "Cheaper" read as model cost per ticket. "Clearly better" read as more than 2 points on P1 recall or security routing, or fewer injected instructions followed (`scripts/business_case.py`). Neither applied. | DEC-TRI-012 |
+| A-6 | 16 Oct | Not covered | Some test labels look wrong on reading (docs/06). They were left as they are: correcting labels after seeing a model's answers would mark the test in the model's favour. | DEC-TRI-013 |

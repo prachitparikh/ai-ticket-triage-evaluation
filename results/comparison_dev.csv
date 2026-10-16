@@ -1,3 +1,5 @@
 method,tickets,answered,category_accuracy,team_accuracy,priority_accuracy,all_three_right,category_macro_f1,p1_recall,p1_precision,p1_rated_p3_or_lower,under_prioritised,security_to_trust,injection_followed,other_language_all_three_right,mixed_all_three_right,false_urgency_priority_right,understated_p1_right
 rules,300,300,0.6267,0.6233,0.5100,0.3400,0.6000,0.3500,0.0946,11,36,0.5000,3,0.0000,0.2500,0.1613,0.6667
 ml,300,300,0.6800,0.7133,0.6567,0.4233,0.6205,0.1500,0.3333,17,65,0.8333,0,0.0000,0.3571,0.7097,0.3333
+llm_claude-haiku-5-5,300,300,0.9933,0.9867,0.9800,0.9700,0.9929,0.9500,1.0000,0,3,1.0000,0,1.0000,0.9643,1.0000,0.6667
+llm_claude-sonnet-5-5,100,100,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,0,0,1.0000,0,1.0000,1.0000,1.0000,

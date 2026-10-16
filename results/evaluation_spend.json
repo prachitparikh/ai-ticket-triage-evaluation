@@ -1,0 +1,67 @@
+{
+  "by_file": {
+    "claude-haiku-5-5/dev_round1_triage_v1_repeat_responses.jsonl": {
+      "requests": 100,
+      "usd": 0.0154
+    },
+    "claude-haiku-5-5/dev_round1_triage_v1_responses.jsonl": {
+      "requests": 300,
+      "usd": 0.0477
+    },
+    "claude-haiku-5-5/dev_round2_triage_v2_repeat_responses.jsonl": {
+      "requests": 100,
+      "usd": 0.021
+    },
+    "claude-haiku-5-5/dev_round2_triage_v2_responses.jsonl": {
+      "requests": 300,
+      "usd": 0.0641
+    },
+    "claude-haiku-5-5/dev_round3_triage_v2_repeat_responses.jsonl": {
+      "requests": 100,
+      "usd": 0.0229
+    },
+    "claude-haiku-5-5/dev_round3_triage_v2_responses.jsonl": {
+      "requests": 300,
+      "usd": 0.0718
+    },
+    "claude-haiku-5-5/dev_triage_v3_responses.jsonl": {
+      "requests": 300,
+      "usd": 0.0698
+    },
+    "claude-haiku-5-5/test_triage_v3_responses.jsonl": {
+      "requests": 500,
+      "usd": 0.1164
+    },
+    "claude-sonnet-5-5/dev_round2_triage_v2_repeat_responses.jsonl": {
+      "requests": 100,
+      "usd": 0.3378
+    },
+    "claude-sonnet-5-5/dev_round2_triage_v2_responses.jsonl": {
+      "requests": 300,
+      "usd": 1.0522
+    },
+    "claude-sonnet-5-5/dev_round3_triage_v2_repeat_responses.jsonl": {
+      "requests": 100,
+      "usd": 0.3476
+    },
+    "claude-sonnet-5-5/dev_round3_triage_v2_responses.jsonl": {
+      "requests": 300,
+      "usd": 1.1091
+    },
+    "claude-sonnet-5-5/dev_triage_v3_responses.jsonl": {
+      "requests": 100,
+      "usd": 0.3493
+    },
+    "claude-sonnet-5-5/test_triage_v3_responses.jsonl": {
+      "requests": 500,
+      "usd": 1.7586
+    }
+  },
+  "by_model": {
+    "claude-haiku-5-5": 0.4291,
+    "claude-sonnet-5-5": 4.9546
+  },
+  "requests": 3400,
+  "total_usd": 5.3837,
+  "note": "List price from config/model_prices.csv, computed from the token counts the API returned. Requests the API rejected (dev round 1, Claude Sonnet 5.5) were not billed and are not in these files."
+}

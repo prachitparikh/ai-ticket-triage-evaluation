@@ -1,0 +1,28 @@
+{
+  "responses": 500,
+  "status": {
+    "ok": 500
+  },
+  "valid_output_rate": 1.0,
+  "models_reported": [
+    "claude-sonnet-5-5"
+  ],
+  "prompts": [
+    "triage_v3"
+  ],
+  "first_request": "2026-10-16T19:32:40Z",
+  "last_request": "2026-10-16T19:37:53Z",
+  "latency_ms_p50": 2321,
+  "latency_ms_p95": 4232,
+  "input_tokens": 90274,
+  "output_tokens": 143502,
+  "cache_read_tokens": 1191888,
+  "cache_write_tokens": 9612,
+  "cost_usd_total": 1.7586,
+  "cost_usd_per_ticket": 0.003517,
+  "redacted": {
+    "email": 96,
+    "phone": 83,
+    "card": 5
+  }
+}

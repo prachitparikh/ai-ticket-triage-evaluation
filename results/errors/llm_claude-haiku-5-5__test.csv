@@ -1,0 +1,35 @@
+ticket_id,plan,subject,body,flags,gold_category,category,gold_team,team,gold_priority,priority,confidence,needs_human,reason
+NS-300384,Business,User invites,"Hello support,
+Writing on behalf of our team. New users click the invite link and get an error. This is blocking month-end close. They start on Monday.",,ACCESS,ACCESS,TIER1,TIER1,P3,P2,0.8000,False,"Multiple new Business-plan users get an error when using invite links, and the ticket says it blocks month-end close, with no workaround mentioned."
+NS-300385,Professional,Who do I contact,"Hi,
+Need this ASAP please!
+Writing on behalf of our team.
+Is there a phone number for support?
+
+Regards,
+Kevin Lopez
+Account Admin, Prairie Analytics Co.",false_urgency,GENERAL,GENERAL,TIER1,TIER1,P3,P4,0.9000,False,Account admin asks how to reach support by phone; no product problem or blocked work is described.
+NS-300416,Starter,Report bug,"Good morning,
+Billable hours on the resource planning report are about double what our timesheets say.
+Not urgent, the report is only for our monthly review.
+Screenshot attached.
+Separately, my phone was stolen and the authenticator app was on it.
+It's affecting about 5 of our users.
+This is blocking month-end close.
+Can you reset my MFA?",mixed,ACCESS,SECURITY,TIER1,TRUST,P2,P1,0.6000,True,"A phone holding the authenticator app was stolen, so the account may be compromised; the customer also reports a report-data discrepancy and about 5 users blocked at month-end."
+NS-300459,Business,UI bug,"The calendar view is blank in Edge.
+Not one of our 48 users can use that screen.
+This is blocking month-end close.
+Cleared cache already.
+Separately, how do i change the week start day to monday
+Thanks!",mixed;typos,BUG,BUG,TIER2,TIER2,P1,P2,0.8000,True,"Calendar view is blank in Edge for all 48 users, blocking month-end close; clearing cache did not help. Also asks a week-start how-to."
+NS-300487,Enterprise,Is there an outage?,"Hi,
+We're getting 502 Bad Gateway on every page.
+Just my login as far as I can tell.
+This is blocking a client deadline on Friday.
+Your status page says everything is fine.
+
+Regards,
+Ben Ortiz | Account Admin
+Maple Partners
+Phone: (555) 016-7986 | ben.ortiz@maplepartners.com",,OUTAGE,BUG,TIER2,TIER2,P2,P2,0.7000,False,"Enterprise account admin Ben Ortiz gets 502 errors on every page for his own login only, with no workaround and a Friday client deadline; status page is green."

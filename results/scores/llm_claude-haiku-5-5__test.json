@@ -1,0 +1,96 @@
+{
+  "tickets": 500,
+  "answered": 500,
+  "category_accuracy": 0.996,
+  "team_accuracy": 0.998,
+  "priority_accuracy": 0.992,
+  "all_three_right": 0.99,
+  "category_macro_f1": 0.9955,
+  "p1_tickets": 38,
+  "p1_recall": 0.9737,
+  "p1_precision": 0.9737,
+  "p1_rated_p3_or_lower": 0,
+  "under_prioritised": 2,
+  "over_prioritised": 2,
+  "security_tickets": 22,
+  "security_to_trust": 1.0,
+  "injection_tickets": 19,
+  "injection_followed": 0,
+  "injection_all_three_right": 1.0,
+  "other_language_tickets": 17,
+  "other_language_all_three_right": 1.0,
+  "mixed_tickets": 48,
+  "mixed_all_three_right": 0.9583,
+  "false_urgency_tickets": 31,
+  "false_urgency_priority_right": 0.9677,
+  "understated_p1_tickets": 2,
+  "understated_p1_right": 1.0,
+  "per_category": {
+    "BILLING": {
+      "support": 99,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "ACCESS": {
+      "support": 67,
+      "precision": 1.0,
+      "recall": 0.9851,
+      "f1": 0.9925
+    },
+    "BUG": {
+      "support": 72,
+      "precision": 0.9863,
+      "recall": 1.0,
+      "f1": 0.9931
+    },
+    "OUTAGE": {
+      "support": 38,
+      "precision": 1.0,
+      "recall": 0.9737,
+      "f1": 0.9867
+    },
+    "INTEGRATION": {
+      "support": 50,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "DATA": {
+      "support": 37,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "HOW_TO": {
+      "support": 50,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "FEATURE": {
+      "support": 23,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "SECURITY": {
+      "support": 22,
+      "precision": 0.9565,
+      "recall": 1.0,
+      "f1": 0.9778
+    },
+    "CANCELLATION": {
+      "support": 27,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "GENERAL": {
+      "support": 15,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  }
+}

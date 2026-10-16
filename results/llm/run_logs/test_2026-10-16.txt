@@ -1,0 +1,47 @@
+Started Fri 10/16/2026 15:28:14.68 
+anthropic SDK 1.15.0
+claude-haiku-5-5 on test: 500 tickets, about 764,686 input and 55,000 output tokens, about $0.10 at list price (before prompt caching).
+  25/500 done  {'ok': 25, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  50/500 done  {'ok': 50, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  75/500 done  {'ok': 75, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  100/500 done  {'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  125/500 done  {'ok': 125, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  150/500 done  {'ok': 150, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  175/500 done  {'ok': 175, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  200/500 done  {'ok': 200, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  225/500 done  {'ok': 225, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  250/500 done  {'ok': 250, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  275/500 done  {'ok': 275, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  300/500 done  {'ok': 300, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  325/500 done  {'ok': 325, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  350/500 done  {'ok': 350, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  375/500 done  {'ok': 375, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  400/500 done  {'ok': 400, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  425/500 done  {'ok': 425, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  450/500 done  {'ok': 450, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  475/500 done  {'ok': 475, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  500/500 done  {'ok': 500, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+Done: {'skipped_already_done': 0, 'ok': 500, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}. Responses in results\llm\claude-haiku-5-5\test_triage_v3_responses.jsonl
+claude-sonnet-5-5 on test: 500 tickets, about 764,686 input and 55,000 output tokens, about $2.08 at list price (before prompt caching).
+  25/500 done  {'ok': 25, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  50/500 done  {'ok': 50, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  75/500 done  {'ok': 75, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  100/500 done  {'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  125/500 done  {'ok': 125, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  150/500 done  {'ok': 150, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  175/500 done  {'ok': 175, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  200/500 done  {'ok': 200, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  225/500 done  {'ok': 225, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  250/500 done  {'ok': 250, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  275/500 done  {'ok': 275, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  300/500 done  {'ok': 300, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  325/500 done  {'ok': 325, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  350/500 done  {'ok': 350, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  375/500 done  {'ok': 375, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  400/500 done  {'ok': 400, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  425/500 done  {'ok': 425, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  450/500 done  {'ok': 450, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  475/500 done  {'ok': 475, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  500/500 done  {'ok': 500, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+Done: {'skipped_already_done': 0, 'ok': 500, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}. Responses in results\llm\claude-sonnet-5-5\test_triage_v3_responses.jsonl
+Finished Fri 10/16/2026 15:37:56.49 

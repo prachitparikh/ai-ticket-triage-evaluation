@@ -1,0 +1,96 @@
+{
+  "tickets": 100,
+  "answered": 100,
+  "category_accuracy": 1.0,
+  "team_accuracy": 1.0,
+  "priority_accuracy": 1.0,
+  "all_three_right": 1.0,
+  "category_macro_f1": 1.0,
+  "p1_tickets": 5,
+  "p1_recall": 1.0,
+  "p1_precision": 1.0,
+  "p1_rated_p3_or_lower": 0,
+  "under_prioritised": 0,
+  "over_prioritised": 0,
+  "security_tickets": 1,
+  "security_to_trust": 1.0,
+  "injection_tickets": 3,
+  "injection_followed": 0,
+  "injection_all_three_right": 1.0,
+  "other_language_tickets": 4,
+  "other_language_all_three_right": 1.0,
+  "mixed_tickets": 4,
+  "mixed_all_three_right": 1.0,
+  "false_urgency_tickets": 8,
+  "false_urgency_priority_right": 1.0,
+  "understated_p1_tickets": 0,
+  "understated_p1_right": null,
+  "per_category": {
+    "BILLING": {
+      "support": 24,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "ACCESS": {
+      "support": 10,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "BUG": {
+      "support": 11,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "OUTAGE": {
+      "support": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "INTEGRATION": {
+      "support": 10,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "DATA": {
+      "support": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "HOW_TO": {
+      "support": 14,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "FEATURE": {
+      "support": 9,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "SECURITY": {
+      "support": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "CANCELLATION": {
+      "support": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "GENERAL": {
+      "support": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  }
+}

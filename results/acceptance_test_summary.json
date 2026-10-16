@@ -1,0 +1,30 @@
+{
+  "llm_claude-haiku-5-5": {
+    "passes_all": true,
+    "failed": []
+  },
+  "llm_claude-sonnet-5-5": {
+    "passes_all": true,
+    "failed": []
+  },
+  "ml": {
+    "passes_all": false,
+    "failed": [
+      "AC-1",
+      "AC-2",
+      "AC-3",
+      "AC-4",
+      "AC-5"
+    ]
+  },
+  "rules": {
+    "passes_all": false,
+    "failed": [
+      "AC-1",
+      "AC-2",
+      "AC-3",
+      "AC-4",
+      "AC-5"
+    ]
+  }
+}

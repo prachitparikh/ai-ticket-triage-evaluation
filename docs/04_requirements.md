@@ -22,7 +22,7 @@
 | BR-TRI-03 | Anything the model flags as needing a person, or below the confidence threshold, goes to the triage queue exactly as today. | Mei Tanaka |
 | BR-TRI-04 | Tickets routed to Trust and Security, and every P1, also page the on-call lead, whoever or whatever set the label. | Ade Okonkwo |
 | BR-TRI-05 | Text inside a ticket can never change how the ticket is handled other than through what it describes. | Ingrid Halvorsen |
-| BR-TRI-06 | Only what triage needs leaves Northstar: the plan, the channel, the subject and body with email addresses, phone numbers and card numbers removed. No company name, customer id or contact details. | Ingrid Halvorsen, DEC-TRI-004 |
+| BR-TRI-06 | Only what triage needs leaves Northstar: the plan, the channel, the subject and body with email addresses, phone numbers and card numbers removed. The company, customer id and contact fields are not sent. | Ingrid Halvorsen, DEC-TRI-004 |
 | BR-TRI-07 | If the model service is slow or down, tickets fall back to today's rules and the triage queue. Nothing waits for the model. | Jonas Berg |
 | BR-TRI-08 | The model's output is used only if it is valid against the agreed schema. Anything else is treated as "needs a person". | Mei Tanaka |
 
@@ -32,6 +32,7 @@
 |---|---|---|---|
 | FR-TRI-01 | Send each new ticket to the triage service within 10 seconds of arrival | Helpdesk webhook fires on create | Pilot |
 | FR-TRI-02 | Redact email addresses, phone numbers and card numbers (Luhn-checked) before sending | No email, phone or valid card number in any request | `triage/redact.py`, `tests/test_redact.py`; run facts show what was removed |
+| FR-TRI-02a | Also replace the customer's own company name and the sender's name wherever they appear in the text (usually the signature) | Neither appears in any request | Added 16 Oct after the evaluation found company names in signatures (docs/06, F-5). Not in the evaluated build. |
 | FR-TRI-03 | Ask the model through one tool with a fixed schema: category, team, priority, confidence, needs_human, reason | Output validates against `config/triage_output.schema.json` | `triage/llm.py`; AC-6 |
 | FR-TRI-04 | Apply the label automatically only when confidence is at or above the threshold set in the evaluation and needs_human is false | Threshold from docs/06 | Evaluation thresholds table |
 | FR-TRI-05 | Otherwise post the proposal as an internal note for the triage agent | Agent sees the proposal and the reason | Pilot |

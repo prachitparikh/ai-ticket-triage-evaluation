@@ -1,0 +1,28 @@
+{
+  "responses": 500,
+  "status": {
+    "ok": 500
+  },
+  "valid_output_rate": 1.0,
+  "models_reported": [
+    "claude-haiku-5-5"
+  ],
+  "prompts": [
+    "triage_v3"
+  ],
+  "first_request": "2026-10-16T19:28:20Z",
+  "last_request": "2026-10-16T19:32:34Z",
+  "latency_ms_p50": 1920,
+  "latency_ms_p95": 3210,
+  "input_tokens": 90274,
+  "output_tokens": 190761,
+  "cache_read_tokens": 1201500,
+  "cache_write_tokens": 0,
+  "cost_usd_total": 0.1164,
+  "cost_usd_per_ticket": 0.000233,
+  "redacted": {
+    "email": 96,
+    "phone": 83,
+    "card": 5
+  }
+}

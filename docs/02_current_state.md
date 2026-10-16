@@ -31,21 +31,21 @@ Today's rules applied to the 8,926 tickets from April to September 2026, compare
 
 | Measure | Result |
 |---|---:|
-| Category right | 71% |
-| Team right (so no reassignment needed) | 72% |
+| Category right | 70% |
+| Team right (so no reassignment needed) | 73% |
 | Priority right | 46% |
-| Tickets sent to the wrong team | 28%, about 475 reassignments a month |
-| P1 tickets the rules rate P1 | 14% |
-| Security tickets that reach Trust and Security | 41% |
+| Tickets sent to the wrong team | 27%, about 470 reassignments a month |
+| P1 tickets the rules rate P1 | 19% |
+| Security tickets that reach Trust and Security | 42% |
 
 Where the misroutes come from:
 
 | Gold category | Tickets | Sent to the wrong team | Why |
 |---|---:|---:|---|
-| Bug | 1,364 | 59% | Bug reports rarely say "bug"; they describe what happened, and words like "save" or "sync" pull them elsewhere |
-| Security | 455 | 59% | "Invoice", "login" and "export" rules fire first |
-| Integration | 689 | 5% | Integration names are distinctive |
-| Cancellation | 361 | 14% | |
+| Bug | 1,368 | 56% | Bug reports rarely say "bug"; they describe what happened, and words like "save" or "sync" pull them elsewhere |
+| Security | 450 | 58% | "Invoice", "login" and "export" rules fire first |
+| Integration | 689 | 4% | Integration names are distinctive |
+| Cancellation | 373 | 13% | |
 
 The priority rules are the weakest part. They react to the customer's tone, not the situation: "URGENT" on a question about changing a logo becomes P1, while "hi, quick one, none of us can log in" stays P3.
 
@@ -64,11 +64,11 @@ Queue model, using the September time study (`config/current_state_model.json`):
 
 | Result | Per month |
 |---|---:|
-| Agent hours spent reassigning | 47.5 |
+| Agent hours spent reassigning | 47.3 |
 | Agent hours spent checking new tickets | 37.2 |
-| P1 tickets | about 100 |
-| P1 tickets answered within the 30-minute target | 9% |
-| Median first response for a P1 | 6.4 hours |
+| P1 tickets | about 86 |
+| P1 tickets answered within the 30-minute target | 11% |
+| Median first response for a P1 | 5.8 hours |
 
 That last line is the problem the Director of Customer Support raised: a customer whose whole company cannot work waits, on average, most of a working day for a first reply, because the rules either missed the urgency or sent the ticket to the wrong team first.
 

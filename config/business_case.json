@@ -1,0 +1,10 @@
+{
+  "source": "Assumptions agreed with Owen Delacroix (Support) and Robert Chen (Finance), 14 October 2026. Scenario values, not data from a real company.",
+  "monthly_tickets_2027": 1650,
+  "auto_route_target_team_accuracy": 0.97,
+  "one_off_build_cost_usd": 18000,
+  "one_off_build_note": "Helpdesk webhook, redaction service, note posting, override logging, weekly report: about 30 developer days at $600 a day.",
+  "monthly_run_overhead_hours": 6,
+  "monthly_run_overhead_note": "Support Ops reviewing the weekly report and the 50-ticket blind sample.",
+  "analyst_cost_per_hour_usd": 55
+}

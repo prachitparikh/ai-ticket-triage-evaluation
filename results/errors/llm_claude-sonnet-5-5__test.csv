@@ -1,0 +1,14 @@
+ticket_id,plan,subject,body,flags,gold_category,category,gold_team,team,gold_priority,priority,confidence,needs_human,reason
+NS-300384,Business,User invites,"Hello support,
+Writing on behalf of our team. New users click the invite link and get an error. This is blocking month-end close. They start on Monday.",,ACCESS,ACCESS,TIER1,TIER1,P3,P2,0.6000,False,"Multiple new users get an error on invite links, which the customer says blocks month-end close; Business plan."
+NS-300459,Business,UI bug,"The calendar view is blank in Edge.
+Not one of our 48 users can use that screen.
+This is blocking month-end close.
+Cleared cache already.
+Separately, how do i change the week start day to monday
+Thanks!",mixed;typos,BUG,BUG,TIER2,TIER2,P1,P2,0.6000,True,"Calendar view renders blank in Edge for all 48 users, blocking month-end close; also a secondary how-to about changing the week start day."
+NS-300472,Enterprise,User invites,"Hi,
+New users click the invite link and get an error. It's affecting about 48 of our users. This is blocking a board meeting this afternoon. They start on Monday.
+
+Cheers,
+Camille",,ACCESS,ACCESS,TIER1,TIER1,P2,P3,0.6000,False,"Enterprise customer's invite links error for about 48 new users who start Monday; they aren't yet working, so not stated as blocked."
