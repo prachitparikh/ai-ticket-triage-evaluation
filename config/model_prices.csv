@@ -1,0 +1,3 @@
+model,input_per_mtok,output_per_mtok,cache_write_5m_per_mtok,cache_read_per_mtok,source,retrieved
+claude-haiku-5-5,0.10,0.50,0.125,0.01,https://platform.claude.com/docs/en/about-claude/pricing (prompts up to 100k tokens),2026-10-16
+claude-sonnet-5-5,2.00,10.00,2.50,0.10,https://platform.claude.com/docs/en/about-claude/pricing,2026-10-16

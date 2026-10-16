@@ -1,0 +1,12 @@
+rule_id,order,pattern,set_category,set_team,added,note
+RR-01,1,\b(refund|invoices?|billing|billed|charged?|charges|receipt|payments?|vat|tax)\b,BILLING,BILLING_OPS,2021-03,First rule written; Billing Ops asked for everything with money words
+RR-02,2,\b(cancel|cancellation|close our account|downgrade|renewal|renew)\b,CANCELLATION,CUSTOMER_SUCCESS,2021-03,
+RR-03,3,\b(hacked|hack|breach|phishing|suspicious|unauthori[sz]ed|gdpr|dpa|xss|vulnerability)\b,SECURITY,TRUST,2022-11,Added after the 2022 phishing wave
+RR-04,4,\b(password|log ?in|login|locked|2fa|two-factor|mfa|sso|saml|invites?)\b,ACCESS,TIER1,2021-03,SSO tickets land here; Tier 1 forwards them to Integrations by hand
+RR-05,5,\b(down|outage|502|503|not loading|slow|time[sd]? out|timing out|unavailable)\b,OUTAGE,TIER2,2021-06,
+RR-06,6,\b(api|webhooks?|salesforce|hubspot|slack|teams|zapier|quickbooks|sync|syncing|integration)\b,INTEGRATION,INTEGRATIONS,2023-02,
+RR-07,7,\b(import|imports|export|exports|csv|bulk)\b,DATA,TIER2,2023-02,
+RR-08,8,\b(error|bug|broken|crash|crashes|crashing|not working|wrong)\b,BUG,TIER2,2021-03,
+RR-09,9,\b(feature|suggestion|would be great|would love|roadmap|feedback)\b,FEATURE,CUSTOMER_SUCCESS,2021-09,
+RR-10,10,\b(how do i|how to|how can|where do i|where can i|is it possible|is there a way)\b,HOW_TO,TIER1,2021-09,
+RR-99,99,,GENERAL,TIER1,2021-03,No rule matched

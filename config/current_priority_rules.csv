@@ -1,0 +1,5 @@
+rule_id,order,pattern,set_priority,note
+PR-01,1,\b(urgent|asap|critical|emergency|down|outage|hacked|breach)\b,P1,
+PR-02,2,\b(can't|cannot|unable|blocked|stuck|not working|failed|fails|error)\b,P2,
+PR-03,3,\b(how do|how to|feature|suggestion|would be great|feedback|quote|pricing)\b,P4,
+PR-99,99,,P3,Default when nothing matches

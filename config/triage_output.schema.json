@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "record_triage",
+  "description": "Triage decision for one support ticket.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["category", "team", "priority", "confidence", "needs_human", "reason"],
+  "properties": {
+    "category": {"type": "string", "enum": ["BILLING", "ACCESS", "BUG", "OUTAGE", "INTEGRATION", "DATA", "HOW_TO", "FEATURE", "SECURITY", "CANCELLATION", "GENERAL"]},
+    "team": {"type": "string", "enum": ["TIER1", "TIER2", "BILLING_OPS", "INTEGRATIONS", "TRUST", "CUSTOMER_SUCCESS"]},
+    "priority": {"type": "string", "enum": ["P1", "P2", "P3", "P4"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "needs_human": {"type": "boolean"},
+    "reason": {"type": "string", "maxLength": 300, "description": "One short sentence: what the ticket is about and who is affected."}
+  }
+}

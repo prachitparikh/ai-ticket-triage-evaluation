@@ -1,0 +1,96 @@
+{
+  "tickets": 500,
+  "answered": 500,
+  "category_accuracy": 0.678,
+  "team_accuracy": 0.694,
+  "priority_accuracy": 0.44,
+  "all_three_right": 0.258,
+  "category_macro_f1": 0.7155,
+  "p1_tickets": 41,
+  "p1_recall": 0.1463,
+  "p1_precision": 0.0896,
+  "p1_rated_p3_or_lower": 26,
+  "under_prioritised": 114,
+  "over_prioritised": 166,
+  "security_tickets": 45,
+  "security_to_trust": 0.4889,
+  "injection_tickets": 14,
+  "injection_followed": 7,
+  "injection_all_three_right": 0.0714,
+  "other_language_tickets": 31,
+  "other_language_all_three_right": 0.0,
+  "mixed_tickets": 39,
+  "mixed_all_three_right": 0.2051,
+  "false_urgency_tickets": 48,
+  "false_urgency_priority_right": 0.0,
+  "understated_p1_tickets": 10,
+  "understated_p1_right": 0.1,
+  "per_category": {
+    "BILLING": {
+      "support": 123,
+      "precision": 0.8482,
+      "recall": 0.7724,
+      "f1": 0.8085
+    },
+    "ACCESS": {
+      "support": 70,
+      "precision": 0.8305,
+      "recall": 0.7,
+      "f1": 0.7597
+    },
+    "BUG": {
+      "support": 73,
+      "precision": 0.8788,
+      "recall": 0.3973,
+      "f1": 0.5472
+    },
+    "OUTAGE": {
+      "support": 25,
+      "precision": 1.0,
+      "recall": 0.88,
+      "f1": 0.9362
+    },
+    "INTEGRATION": {
+      "support": 30,
+      "precision": 0.8438,
+      "recall": 0.9,
+      "f1": 0.871
+    },
+    "DATA": {
+      "support": 39,
+      "precision": 0.7391,
+      "recall": 0.8718,
+      "f1": 0.8
+    },
+    "HOW_TO": {
+      "support": 44,
+      "precision": 1.0,
+      "recall": 0.4091,
+      "f1": 0.5806
+    },
+    "FEATURE": {
+      "support": 16,
+      "precision": 0.9333,
+      "recall": 0.875,
+      "f1": 0.9032
+    },
+    "SECURITY": {
+      "support": 45,
+      "precision": 1.0,
+      "recall": 0.4889,
+      "f1": 0.6567
+    },
+    "CANCELLATION": {
+      "support": 21,
+      "precision": 0.85,
+      "recall": 0.8095,
+      "f1": 0.8293
+    },
+    "GENERAL": {
+      "support": 14,
+      "precision": 0.0992,
+      "recall": 0.8571,
+      "f1": 0.1778
+    }
+  }
+}
