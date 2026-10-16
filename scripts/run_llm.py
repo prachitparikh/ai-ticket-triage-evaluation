@@ -4,7 +4,7 @@
     python scripts/run_llm.py --model claude-haiku-5-5 --split dev --yes      # runs it
 
 The key is read from the ANTHROPIC_API_KEY environment variable and never written
-anywhere. Responses go to results/llm/<model>/<split>_responses.jsonl, one line
+anywhere. Responses go to results/llm/<model>/<split>_<prompt>_responses.jsonl, one line
 per ticket, as they arrive. Running the same command again only sends the
 tickets that have no good answer yet.
 
@@ -33,9 +33,12 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--model", required=True, choices=sorted(prices()))
     ap.add_argument("--split", required=True, choices=sorted(SPLITS))
-    ap.add_argument("--prompt", default="triage_v1")
+    ap.add_argument("--prompt", default="triage_v3")
     ap.add_argument("--limit", type=int, help="only the first N tickets (for a smoke test)")
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--label", default="", help="suffix for the output file, e.g. 'repeat' for the consistency re-run")
+    ap.add_argument("--temperature", type=float, default=None,
+                    help="only if the SDK and model accept it; the SDK used on 16 Oct 2026 does not")
     ap.add_argument("--yes", action="store_true", help="actually call the API")
     args = ap.parse_args(argv)
 
@@ -56,8 +59,10 @@ def main(argv=None) -> int:
     import anthropic  # only needed for live runs
 
     client = anthropic.Anthropic(max_retries=4, timeout=60)
-    out = RESULTS / "llm" / args.model / f"{args.split}_responses.jsonl"
-    summary = run(client, args.model, rows, out, prompt_version=args.prompt, workers=args.workers)
+    name = f"{args.split}_{args.prompt}" + (f"_{args.label}" if args.label else "") + "_responses.jsonl"
+    out = RESULTS / "llm" / args.model / name
+    summary = run(client, args.model, rows, out, prompt_version=args.prompt, workers=args.workers,
+                  temperature=args.temperature, sdk=anthropic.__version__)
     print(f"Done: {summary}. Responses in {out.relative_to(ROOT)}")
     return 0 if summary["api_error"] == 0 else 1
 

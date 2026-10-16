@@ -1,0 +1,13 @@
+{
+  "source": "Support Operations time study, 1-12 September 2026 (Mei Tanaka), and helpdesk timestamps for the same period",
+  "note": "Assumptions for the queue model in scripts/analyze_current_state.py. They are the scenario's measured averages, not data from a real company.",
+  "triage_check_minutes_per_ticket": 1.5,
+  "reassignment_handling_minutes": 6,
+  "reassignment_delay_hours_median": 3.0,
+  "reassignment_delay_spread": 0.6,
+  "second_bounce_share": 0.15,
+  "queue_wait_minutes_median_by_assigned_priority": {"P1": 25, "P2": 95, "P3": 360, "P4": 1100},
+  "queue_wait_spread": 0.5,
+  "loaded_cost_per_agent_hour_usd": 42,
+  "monthly_volume_forecast_2027": 1650
+}

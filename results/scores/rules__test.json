@@ -1,84 +1,84 @@
 {
   "tickets": 500,
   "answered": 500,
-  "category_accuracy": 0.664,
-  "team_accuracy": 0.654,
-  "priority_accuracy": 0.486,
-  "all_three_right": 0.326,
-  "category_macro_f1": 0.6088,
-  "p1_tickets": 48,
-  "p1_recall": 0.3125,
-  "p1_precision": 0.1154,
-  "p1_rated_p3_or_lower": 24,
-  "under_prioritised": 78,
-  "over_prioritised": 179,
-  "security_tickets": 29,
-  "security_to_trust": 0.4138,
-  "injection_tickets": 20,
-  "injection_followed": 12,
-  "injection_all_three_right": 0.2,
+  "category_accuracy": 0.638,
+  "team_accuracy": 0.65,
+  "priority_accuracy": 0.512,
+  "all_three_right": 0.338,
+  "category_macro_f1": 0.5914,
+  "p1_tickets": 38,
+  "p1_recall": 0.3421,
+  "p1_precision": 0.1354,
+  "p1_rated_p3_or_lower": 19,
+  "under_prioritised": 73,
+  "over_prioritised": 171,
+  "security_tickets": 22,
+  "security_to_trust": 0.3636,
+  "injection_tickets": 19,
+  "injection_followed": 9,
+  "injection_all_three_right": 0.3158,
   "other_language_tickets": 17,
   "other_language_all_three_right": 0.0,
-  "mixed_tickets": 39,
-  "mixed_all_three_right": 0.2051,
-  "false_urgency_tickets": 33,
-  "false_urgency_priority_right": 0.0606,
-  "understated_p1_tickets": 4,
-  "understated_p1_right": 0.25,
+  "mixed_tickets": 48,
+  "mixed_all_three_right": 0.1667,
+  "false_urgency_tickets": 31,
+  "false_urgency_priority_right": 0.0645,
+  "understated_p1_tickets": 2,
+  "understated_p1_right": 0.5,
   "per_category": {
     "BILLING": {
-      "support": 97,
-      "precision": 0.9053,
-      "recall": 0.8866,
-      "f1": 0.8958
+      "support": 99,
+      "precision": 0.8544,
+      "recall": 0.8889,
+      "f1": 0.8713
     },
     "ACCESS": {
-      "support": 78,
-      "precision": 0.641,
-      "recall": 0.9615,
-      "f1": 0.7692
+      "support": 67,
+      "precision": 0.5727,
+      "recall": 0.9403,
+      "f1": 0.7119
     },
     "BUG": {
-      "support": 67,
-      "precision": 0.8571,
-      "recall": 0.2687,
-      "f1": 0.4091
+      "support": 72,
+      "precision": 0.7826,
+      "recall": 0.25,
+      "f1": 0.3789
     },
     "OUTAGE": {
-      "support": 33,
-      "precision": 0.6538,
-      "recall": 0.5152,
-      "f1": 0.5763
+      "support": 38,
+      "precision": 0.64,
+      "recall": 0.4211,
+      "f1": 0.5079
     },
     "INTEGRATION": {
-      "support": 45,
-      "precision": 0.7391,
-      "recall": 0.7556,
-      "f1": 0.7473
+      "support": 50,
+      "precision": 0.8409,
+      "recall": 0.74,
+      "f1": 0.7872
     },
     "DATA": {
-      "support": 36,
-      "precision": 0.6591,
-      "recall": 0.8056,
-      "f1": 0.725
+      "support": 37,
+      "precision": 0.6,
+      "recall": 0.7297,
+      "f1": 0.6585
     },
     "HOW_TO": {
       "support": 50,
-      "precision": 1.0,
+      "precision": 0.9333,
       "recall": 0.56,
-      "f1": 0.7179
+      "f1": 0.7
     },
     "FEATURE": {
       "support": 23,
-      "precision": 1.0,
-      "recall": 0.1739,
-      "f1": 0.2963
+      "precision": 0.8571,
+      "recall": 0.2609,
+      "f1": 0.4
     },
     "SECURITY": {
-      "support": 29,
-      "precision": 0.9231,
-      "recall": 0.4138,
-      "f1": 0.5714
+      "support": 22,
+      "precision": 0.8889,
+      "recall": 0.3636,
+      "f1": 0.5161
     },
     "CANCELLATION": {
       "support": 27,
@@ -88,9 +88,9 @@
     },
     "GENERAL": {
       "support": 15,
-      "precision": 0.1364,
-      "recall": 0.8,
-      "f1": 0.233
+      "precision": 0.1279,
+      "recall": 0.7333,
+      "f1": 0.2178
     }
   }
 }

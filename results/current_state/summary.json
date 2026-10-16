@@ -1,0 +1,25 @@
+{
+  "tickets": 8926,
+  "months": 6,
+  "tickets_per_month": 1488,
+  "misrouted_share": 0.2722,
+  "reassignments_total": 2839,
+  "reassignments_per_month": 473,
+  "agent_hours_per_month_on_reassignment": 47.3,
+  "agent_hours_per_month_on_triage_check": 37.2,
+  "category_right_by_rules": 0.7033,
+  "priority_right_by_rules": 0.4638,
+  "p1_tickets": 518,
+  "p1_per_month": 86.3,
+  "p1_rated_p1_by_rules": 0.1853,
+  "p1_met_30_min_target": 0.11,
+  "p1_median_first_response_min": 349.8,
+  "security_tickets_to_trust_by_rules": 0.4156,
+  "closed_label_agreement_with_guide": {
+    "category": 0.9421,
+    "team": 0.9712,
+    "priority": 0.9151
+  },
+  "all_tickets_met_target": 0.5999,
+  "model_assumptions": "config/current_state_model.json"
+}

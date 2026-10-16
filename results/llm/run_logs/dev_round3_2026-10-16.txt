@@ -1,0 +1,43 @@
+Started Fri 10/16/2026 15:14:53.23 
+anthropic SDK 1.15.0
+claude-haiku-5-5 on dev: 300 tickets, about 439,820 input and 33,000 output tokens, about $0.06 at list price (before prompt caching).
+  25/300 done  {'ok': 25, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  50/300 done  {'ok': 50, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  75/300 done  {'ok': 75, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  100/300 done  {'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  125/300 done  {'ok': 125, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  150/300 done  {'ok': 150, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  175/300 done  {'ok': 175, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  200/300 done  {'ok': 200, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  225/300 done  {'ok': 225, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  250/300 done  {'ok': 250, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  275/300 done  {'ok': 274, 'schema_error': 1, 'no_tool_use': 0, 'api_error': 0}
+  300/300 done  {'ok': 299, 'schema_error': 1, 'no_tool_use': 0, 'api_error': 0}
+Done: {'skipped_already_done': 0, 'ok': 299, 'schema_error': 1, 'no_tool_use': 0, 'api_error': 0}. Responses in results\llm\claude-haiku-5-5\dev_triage_v2_responses.jsonl
+claude-sonnet-5-5 on dev: 300 tickets, about 439,820 input and 33,000 output tokens, about $1.21 at list price (before prompt caching).
+  25/300 done  {'ok': 25, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  50/300 done  {'ok': 50, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  75/300 done  {'ok': 75, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  100/300 done  {'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  125/300 done  {'ok': 125, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  150/300 done  {'ok': 150, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  175/300 done  {'ok': 175, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  200/300 done  {'ok': 200, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  225/300 done  {'ok': 225, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  250/300 done  {'ok': 250, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  275/300 done  {'ok': 275, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  300/300 done  {'ok': 300, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+Done: {'skipped_already_done': 0, 'ok': 300, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}. Responses in results\llm\claude-sonnet-5-5\dev_triage_v2_responses.jsonl
+claude-haiku-5-5 on dev: 100 tickets, about 146,425 input and 11,000 output tokens, about $0.02 at list price (before prompt caching).
+  25/100 done  {'ok': 25, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  50/100 done  {'ok': 50, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  75/100 done  {'ok': 75, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  100/100 done  {'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+Done: {'skipped_already_done': 0, 'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}. Responses in results\llm\claude-haiku-5-5\dev_triage_v2_repeat_responses.jsonl
+claude-sonnet-5-5 on dev: 100 tickets, about 146,425 input and 11,000 output tokens, about $0.40 at list price (before prompt caching).
+  25/100 done  {'ok': 25, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  50/100 done  {'ok': 50, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  75/100 done  {'ok': 75, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+  100/100 done  {'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}
+Done: {'skipped_already_done': 0, 'ok': 100, 'schema_error': 0, 'no_tool_use': 0, 'api_error': 0}. Responses in results\llm\claude-sonnet-5-5\dev_triage_v2_repeat_responses.jsonl
+Finished Fri 10/16/2026 15:22:55.50 

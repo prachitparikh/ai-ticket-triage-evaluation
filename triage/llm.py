@@ -27,7 +27,7 @@ from . import CONFIG, PROMPTS
 from .redact import redact
 
 TOOL_NAME = "record_triage"
-MAX_TOKENS = 400
+MAX_TOKENS = 2000   # 400 truncated a third of the answers once the tool was no longer forced (dev round 2)
 
 
 def load_prompt(version: str = "triage_v1") -> tuple[str, str]:
@@ -93,17 +93,18 @@ def parse(response, schema: dict) -> tuple[str, dict | None, str | None]:
 
 
 def classify_one(client, model: str, row: dict, system: str, prompt_version: str, schema: dict, tool: dict,
-                 temperature: float | None = 0.0) -> dict:
+                 temperature: float | None = None, sdk: str | None = None) -> dict:
     user, redactions = ticket_message(row)
     kwargs = dict(model=model, max_tokens=MAX_TOKENS,
                   system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
-                  tools=[tool], tool_choice={"type": "tool", "name": TOOL_NAME},
+                  tools=[tool], tool_choice={"type": "auto"},  # Sonnet 5.5 rejects a forced tool choice (dev round 1)
                   messages=[{"role": "user", "content": user}])
     if temperature is not None:
         kwargs["temperature"] = temperature
     started = datetime.now(timezone.utc)
     t0 = time.perf_counter()
-    record = {"ticket_id": row["ticket_id"], "model": model, "prompt": prompt_version,
+    record = {"ticket_id": row["ticket_id"], "model": model, "prompt": prompt_version, "sdk": sdk,
+              "temperature": temperature if temperature is not None else "model default",
               "started_at": started.strftime("%Y-%m-%dT%H:%M:%SZ"), "redactions": redactions}
     try:
         response = client.messages.create(**kwargs)
@@ -114,9 +115,11 @@ def classify_one(client, model: str, row: dict, system: str, prompt_version: str
     usage = {k: getattr(response.usage, k, 0) or 0 for k in
              ("input_tokens", "output_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")}
     status, output, error = parse(response, schema)
+    text = " ".join(getattr(b, "text", "") for b in response.content if getattr(b, "type", None) == "text").strip()
     record.update(status=status, error=error, output=output, usage=usage, cost_usd=cost_usd(model, usage),
                   latency_ms=int((time.perf_counter() - t0) * 1000), stop_reason=response.stop_reason,
-                  request_id=getattr(response, "_request_id", None), response_model=response.model)
+                  request_id=getattr(response, "_request_id", None), response_model=response.model,
+                  text_before_tool=text[:500] or None)
     return record
 
 
@@ -128,7 +131,7 @@ def done_ids(path: Path) -> set[str]:
 
 
 def run(client, model: str, rows: list[dict], out: Path, prompt_version: str = "triage_v1", workers: int = 4,
-        temperature: float | None = 0.0, progress=print) -> dict:
+        temperature: float | None = None, sdk: str | None = None, progress=print) -> dict:
     out.parent.mkdir(parents=True, exist_ok=True)
     _, system = load_prompt(prompt_version)
     schema, tool = output_schema(), tool_definition()
@@ -136,7 +139,8 @@ def run(client, model: str, rows: list[dict], out: Path, prompt_version: str = "
     lock = threading.Lock()
     counts = {"ok": 0, "schema_error": 0, "no_tool_use": 0, "api_error": 0}
     with ThreadPoolExecutor(max_workers=workers) as pool, open(out, "a", encoding="utf-8", newline="\n") as f:
-        futures = [pool.submit(classify_one, client, model, r, system, prompt_version, schema, tool, temperature) for r in todo]
+        futures = [pool.submit(classify_one, client, model, r, system, prompt_version, schema, tool, temperature, sdk)
+                   for r in todo]
         for i, fut in enumerate(as_completed(futures), start=1):
             rec = fut.result()
             with lock:

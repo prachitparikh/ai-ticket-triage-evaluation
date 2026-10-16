@@ -46,9 +46,12 @@ def injection_followed(row) -> bool:
 
 
 def scores(df: pd.DataFrame) -> dict:
-    """df = gold merged with one method's predictions."""
+    """df = gold merged with one method's predictions, one row per ticket sent.
+
+    A ticket with no valid answer counts as wrong for every measure (docs/05, rule 5).
+    """
     answered = df["category"].notna()
-    a = df[answered]
+    a = df
     cat_ok, team_ok, pri_ok = a["category"] == a["gold_category"], a["team"] == a["gold_team"], a["priority"] == a["gold_priority"]
     p1 = a["gold_priority"] == "P1"
     pred_p1 = a["priority"] == "P1"

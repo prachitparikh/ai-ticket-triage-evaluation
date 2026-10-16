@@ -102,7 +102,7 @@ INTENTS = [
          subj=["Invoice copy", "Need invoice {inv}", "Invoices for {month}", "Where are our invoices?"],
          body=["Can you send a copy of invoice {inv}? Our AP team can't find it.",
                "I need PDFs of our invoices for {month} for our auditors.",
-               "Where can I download past invoices? I need the last three.",
+               "Please send us PDFs of the last three invoices.",
                "Please resend invoice {inv}, the email went to someone who left."],
          more=["Thanks!", "", "Appreciate it."]),
     dict(code="update_payment", cat="BILLING", kind="billing_admin", w=22,
@@ -126,101 +126,101 @@ INTENTS = [
                "How much is the extra storage add-on?"],
          more=["", "No rush.", "We're planning next year's budget."]),
     # ---- access
-    dict(code="password_reset", cat="ACCESS", kind="access", w=40, scoped=True, verb="log in",
+    dict(code="password_reset", cat="ACCESS", kind="access", w=40, wk=["A colleague can cover for me for now.", "I'm still logged in on the mobile app, so not urgent.", "I can use my laptop at home where I'm still signed in.", "No rush, I can wait until tomorrow."], scoped=True, verb="log in",
          subj=["Can't log in", "Password reset not working", "Locked out", "Login problem", "Reset link expired"],
          body=["The password reset email never arrives.", "The reset link says it has expired every time I click it.",
                "I'm locked out after too many attempts.", "I can't log in. It says my password is wrong but I just reset it.",
                "login page keeps saying invalid credentials"],
          more=["I checked spam.", "", "I've tried two browsers."]),
-    dict(code="mfa_lost", cat="ACCESS", kind="access", w=16, scoped=True, verb="log in",
+    dict(code="mfa_lost", cat="ACCESS", kind="access", w=16, wk=["I'm still logged in on my laptop for now.", "Not urgent, I'm still signed in on my work computer.", "I can get by on the mobile app for a day or two.", "It can wait until Monday."], scopes=("user", "team"), scoped=True, verb="log in",
          subj=["2FA codes not working", "Two-factor problem", "MFA reset", "Can't get past two-factor"],
          body=["I got a new phone and can't get my two-factor codes any more.", "Two-factor codes keep getting rejected.",
                "The authenticator code is never accepted.", "My phone was stolen and the authenticator app was on it.", "I switched authenticator apps and now my codes don't work."],
          more=["", "Can you reset my MFA?"]),
-    dict(code="sso_login", cat="ACCESS", kind="access", w=16, scoped=True, sso=True, verb="sign in",
+    dict(code="sso_login", cat="ACCESS", kind="access", w=16, wk=["Password login still works as a fallback.", "We can still sign in with passwords for now.", "People who were already signed in are fine for now.", "We switched to password logins for the day."], scoped=True, sso=True, verb="sign in",
          subj=["SSO login failing", "{idp} sign-in error", "SAML error", "Can't sign in with {idp}"],
          body=["Since this morning our {idp} login sends us straight back to the sign-in page.",
                "We get a SAML error 'Invalid audience' when signing in through {idp}.",
                "Single sign-on fails with error {err}.", "SSO through {idp} stopped working after we renewed our certificate."],
          more=["", "Nothing changed on our side as far as we know."]),
-    dict(code="user_invite", cat="ACCESS", kind="access", w=16, scoped=True, verb="get into their accounts",
+    dict(code="user_invite", cat="ACCESS", kind="access", w=16, wk=["They start next week, so there's time.", "They can shadow a colleague until it's sorted.", "No rush, they start on the 1st.", "We can add them later this week."], scopes=("user", "team"), scoped=True, verb="get into their accounts",
          subj=["Problem adding users", "Adding users", "New user access", "User invites"],
          body=["Invites to new team members aren't arriving.", "New users click the invite link and get an error.",
                "I need to add three people but it says we're out of seats.", "A new hire says the invite link takes them to an error page.", "I invited our new contractor twice and nothing showed up in her inbox."],
          more=["", "They start on Monday."]),
     # ---- bugs
-    dict(code="report_wrong", cat="BUG", kind="defect", w=18, scoped=True, verb="trust the numbers",
+    dict(code="report_wrong", cat="BUG", kind="defect", w=18, wk=["We can pull the numbers from the export instead.", "We're checking the totals by hand for now.", "The timesheet view is right, so we use that.", "Not urgent, the report is only for our monthly review."], core=False, scoped=True, verb="trust the numbers",
          subj=["Report totals wrong", "{report} report incorrect", "Numbers don't match", "Report bug"],
          body=["The {report} report includes hours from last month in this month's totals.",
                "Totals on the {report} report don't match the timesheet export.",
                "The {report} report shows zero for projects that clearly have time logged.", "Billable hours on the {report} report are about double what our timesheets say.", "The {report} report ignores the date filter and shows everything."],
          more=["", "Screenshot attached."]),
-    dict(code="save_error", cat="BUG", kind="defect", w=26, scoped=True, verb="save their work",
+    dict(code="save_error", cat="BUG", kind="defect", w=26, wk=["Saving from the mobile app works for now.", "If we retry a few times it eventually saves.", "We're keeping notes and entering them later.", "It works on the second try."], scoped=True, verb="save their work",
          subj=["Error when saving", "Can't save timesheet", "Error {err}", "Save button not working"],
          body=["I get error {err} when I save a project.", "Clicking Save on a timesheet does nothing.",
                "Every time we approve timesheets we get {err}.", "Changes to tasks don't save, they disappear on refresh."],
          more=["", "Started after your update this week.", "Tried {browser} too."]),
-    dict(code="ui_broken", cat="BUG", kind="defect", w=18, scoped=True, verb="use that screen",
+    dict(code="ui_broken", cat="BUG", kind="defect", w=18, wk=["It works in a different browser.", "We can do the same thing from the list view.", "The mobile app shows it fine.", "Not urgent, we can use another screen."], scoped=True, verb="use that screen",
          subj=["Display issue", "Page not working properly", "Something broke after the update", "UI bug"],
          body=["The scheduler won't let me drag shifts since the update.", "The calendar view is blank in {browser}.",
                "Buttons on the client portal overlap and you can't click Submit.", "The {module} page loads but the list is empty."],
          more=["", "Cleared cache already."]),
-    dict(code="notification_bug", cat="BUG", kind="defect", w=12, scoped=True, verb="get task alerts",
+    dict(code="notification_bug", cat="BUG", kind="defect", w=12, wk=["We're checking the task list manually for now.", "Not urgent, we can live with it for a few days.", "We remind each other on chat for now.", "It's just annoying, nothing is blocked."], core=False, scoped=True, verb="get task alerts",
          subj=["Notification problem", "Email alerts", "Reminder emails"],
          body=["Email notifications for new tasks stopped arriving.", "We're getting the same reminder email five times.",
                "Due-date reminders are going out a day late.", "Nobody gets an email when a task is assigned to them anymore.", "Mentions in comments don't send any alert."],
          more=["", "Checked notification settings, all on."]),
-    dict(code="mobile_crash", cat="BUG", kind="defect", w=12, scoped=True, verb="use the app in the field",
+    dict(code="mobile_crash", cat="BUG", kind="defect", w=12, wk=["The web version works fine in the meantime.", "We're using the browser on our phones instead.", "We log time on laptops for now.", "Not urgent, the website works."], core=False, scoped=True, verb="use the app in the field",
          subj=["Mobile app problem", "App issue", "Problem with the app"],
          body=["The iOS app crashes as soon as I open a project.", "The Android app logs me out every few minutes.",
                "The mobile app won't sync time entries.", "The phone app freezes on the timesheet screen and then closes.", "Since updating the app it won't open at all."],
          more=["", "Latest version installed."]),
     # ---- outage and performance
-    dict(code="site_down", cat="OUTAGE", kind="outage", w=14, scoped=True, verb="use Northstar",
+    dict(code="site_down", cat="OUTAGE", kind="outage", w=14, block=1.0, scoped=True, verb="use Northstar",
          subj=["Northstar down?", "Site not loading", "502 errors", "Is there an outage?", "Can't access the app"],
          body=["Northstar won't load at all, just a spinning wheel.", "We're getting 502 Bad Gateway on every page.",
                "The app has been down since 9am our time.", "Pages time out with 'service unavailable'."],
          more=["", "Your status page says everything is fine."]),
-    dict(code="slow", cat="OUTAGE", kind="outage", w=14, scoped=True, verb="get anything done",
+    dict(code="slow", cat="OUTAGE", kind="outage", w=14, wk=["It's slow but we can still work.", "We're getting by, just slowly.", "It's usable, just frustrating.", "It's bearable for now."], scoped=True, verb="get anything done",
          subj=["Very slow today", "Performance issues", "Reports timing out", "Lag"],
          body=["Everything is extremely slow today. Pages take a minute to load.",
                "Reports time out before they finish loading.", "Saving anything takes 30 seconds or more.", "The app is crawling. Every click takes ages.", "Loading a single project takes almost two minutes."],
          more=["", "Our internet is fine, other sites load normally."]),
-    dict(code="module_down", cat="OUTAGE", kind="outage", w=10, scoped=True, verb="use the {module} page",
+    dict(code="module_down", cat="OUTAGE", kind="outage", w=10, wk=["The rest of the app works, so we're getting by.", "We can use the mobile app for that for now.", "We can wait a few hours for that part.", "Everything else is fine, so it's not urgent."], scoped=True, verb="use the {module} page",
          subj=["Part of the app not loading", "Error 503", "Page down"],
          body=["The {module} page returns error 503.", "The {module} page won't open, it just says the service is unavailable.",
                "{module} shows a blank white screen.", "The {module} section just spins and never loads.", "We get a 503 on {module}, everything else seems fine."],
          more=["", "Rest of the app works."]),
     # ---- integrations
-    dict(code="crm_sync", cat="INTEGRATION", kind="integration", w=22, scoped=True, verb="get new deals into Northstar",
+    dict(code="crm_sync", cat="INTEGRATION", kind="integration", w=22, wk=["We're entering new records by hand for now.", "We can copy them over manually for a few days.", "Not urgent, we only need it at month end.", "We can export and import them ourselves for now."], scoped=True, verb="get new deals into Northstar",
          subj=["{integration} sync stopped", "{integration} not syncing", "Integration error", "Sync issue"],
          body=["{integration} sync stopped on {date}. New records aren't coming through any more.",
                "{integration} contacts aren't syncing. The last sync shows {date}.",
                "The {integration} integration shows 'token expired' and reconnecting doesn't help.", "Nothing new has come over from {integration} since {date}.", "The {integration} connection keeps failing with an authentication error."],
          more=["", "We reconnected it twice."]),
-    dict(code="chat_integration", cat="INTEGRATION", kind="integration", w=10, scoped=True, verb="see task updates",
+    dict(code="chat_integration", cat="INTEGRATION", kind="integration", w=10, wk=["We're checking Northstar directly for now.", "Not urgent, email alerts still work.", "We can live without it for a while.", "People are just checking the app."], scoped=True, verb="see task updates",
          subj=["{chat} notifications stopped", "{chat} integration disconnected"],
          body=["{chat} notifications stopped posting to our channel.", "The {chat} integration disconnected and won't reconnect.", "We stopped getting task updates in {chat} on {date}.", "The {chat} app says our workspace is no longer connected.", "Northstar alerts don't show up in {chat} anymore."],
          more=["", ""]),
-    dict(code="api_error", cat="INTEGRATION", kind="integration", w=14, scoped=True, verb="run our nightly sync",
+    dict(code="api_error", cat="INTEGRATION", kind="integration", w=14, wk=["We're running the sync by hand for now.", "Nothing critical depends on it, we can wait.", "We switched to the nightly CSV for now.", "We can pause that job for a few days."], scoped=True, verb="run our nightly sync",
          subj=["API problem", "API errors", "Integration errors"],
          body=["Our API calls to /v2/projects return 401 since yesterday, even with a new key.",
                "Webhook deliveries are failing with timeouts.",
                "We're hitting 429 rate limit errors at far lower volume than your docs say.", "Our integration gets 'invalid token' from your API since this morning.", "Webhooks to our endpoint stopped arriving on {date}."],
          more=["", "Request IDs available if you need them."]),
     # ---- data
-    dict(code="import_fail", cat="DATA", kind="data_issue", w=16, scoped=True, verb="load the new clients",
+    dict(code="import_fail", cat="DATA", kind="data_issue", w=16, wk=["We can add the clients by hand for now.", "Not urgent, we can import next week.", "We'll enter the urgent ones manually.", "We can split the file and try again later."], scoped=True, verb="load the new clients",
          subj=["CSV import failing", "Import error", "Can't import clients", "Import stuck"],
          body=["The CSV import fails at row {row} with 'invalid date format'.",
                "Importing our client list gives 'file could not be processed'.",
                "The import has been 'processing' for six hours.", "The import rejects every row with 'unknown column'.", "Uploading the clients CSV ends with a generic error and nothing is created."],
          more=["", "File attached."]),
-    dict(code="export_broken", cat="DATA", kind="data_issue", w=12, scoped=True, verb="get the data out",
+    dict(code="export_broken", cat="DATA", kind="data_issue", w=12, wk=["We can copy what we need from the screen.", "We can wait a few days for this.", "The PDF version works for now.", "Not urgent, it's for an internal review."], scoped=True, verb="get the data out",
          subj=["Export empty", "Export missing data", "Excel export broken"],
          body=["Export to Excel gives an empty file.", "The timesheet export is missing everything after the 15th.",
                "The CSV export cuts off at 10,000 rows.", "The export file downloads but it won't open, it says it's corrupted.", "Exports only include the first page of results."],
          more=["", "We need it for payroll."]),
-    dict(code="dupes_after_import", cat="DATA", kind="data_issue", w=8, scoped=True, verb="work with the client list",
+    dict(code="dupes_after_import", cat="DATA", kind="data_issue", w=8, wk=["We can work around the duplicates for now.", "We're just ignoring the copies for now.", "We can clean them up ourselves if needed.", "Not urgent, nothing is lost."], scoped=True, verb="work with the client list",
          subj=["Duplicates after import", "Import created duplicates"],
          body=["The import created a duplicate of every client.", "After the bulk update every task appears twice.", "We imported once and now every contact shows up twice.", "Running the import created a second copy of all our projects.", "After the CSV upload there are duplicate clients everywhere."],
          more=["", ""]),
@@ -310,13 +310,15 @@ INTENTS = [
          more=[""]),
 ]
 
-SCOPE_LINES = {
-    "user": ["It's only happening to me.", "Just my login as far as I can tell.", "My colleagues seem fine.",
-             "Only one of our users has this.", "", ""],
-    "team": ["The whole {dept} team ({n} people) has the same problem.", "None of our {dept} team can {verb} right now.",
-             "It's affecting about {n} of our users.", "Everyone in {dept} is seeing this."],
-    "account": ["Nobody in our company can {verb}.", "It's the same for all {users} of our users.",
-                "Our whole organization is affected.", "Every user on our account gets this."],
+SCOPE_LINES = {   # "neutral" lines say who is affected; "blocked" lines also say they cannot work
+    "user": {"neutral": ["It's only happening to me.", "Just my login as far as I can tell.", "My colleagues seem fine.",
+                         "Only one of our users has this.", "", ""], "blocked": []},
+    "team": {"neutral": ["The whole {dept} team ({n} people) has the same problem.", "It's affecting about {n} of our users.",
+                         "Everyone in {dept} is seeing this.", "About {n} people on the {dept} team have it."],
+             "blocked": ["None of our {dept} team can {verb} right now.", "The {dept} team ({n} people) can't {verb}."]},
+    "account": {"neutral": ["It's the same for all {users} of our users.", "Our whole organization is affected.",
+                            "Every user on our account gets this.", "All {users} of our users see the same thing."],
+                "blocked": ["Nobody in our company can {verb}.", "Not one of our {users} users can {verb}."]},
 }
 BLOCKING_LINES = ["We can't work until this is fixed.", "This is blocking {deadline}.",
                   "There's no way around it that we can find.", "We're completely stuck.",
@@ -343,7 +345,7 @@ OTHER_LANGUAGE = [
     ("fr", "password_reset", "user", False, "Connexion impossible",
      "Bonjour, je n'arrive plus à me connecter. Le lien de réinitialisation du mot de passe ne fonctionne pas. Merci."),
     ("fr", "site_down", "account", True, "Northstar inaccessible",
-     "Bonjour, Northstar est inaccessible pour toute notre équipe depuis ce matin (erreur 502). Nous ne pouvons pas travailler."),
+     "Bonjour, Northstar est inaccessible pour toute l'entreprise depuis ce matin (erreur 502). Personne ne peut travailler."),
     ("fr", "dup_charge", None, None, "Double prélèvement",
      "Bonjour, nous avons été débités deux fois pour la facture {inv} ({amount}). Pouvez-vous rembourser le doublon ?"),
     ("fr", "cancel", None, None, "Résiliation",
@@ -427,22 +429,26 @@ class Gen:
         scope, blocking = "user", False
         lines = [self.fill(self.phrase(intent["body"]), s)]
         if intent.get("scoped"):
-            scope = force_scope or self.r.choices(["user", "team", "account"], weights=[55, 30, 15])[0]
+            scopes = intent.get("scopes", ("user", "team", "account"))
+            weights = {"user": 55, "team": 30, "account": 15}
+            scope = force_scope or self.r.choices(scopes, weights=[weights[x] for x in scopes])[0]
             if scope == "account" and cust["users"] < 3:
                 scope = "team"
-            blocking = force_blocking if force_blocking is not None else self.r.random() < (0.55 if scope != "user" else 0.35)
+            p_block = intent.get("block", 0.55 if scope != "user" else 0.35)
+            blocking = force_blocking if force_blocking is not None else self.r.random() < p_block
             s2 = dict(s, verb=self.fill(intent.get("verb", "work"), s))
-            scope_line = self.fill(self.phrase(SCOPE_LINES[scope]), s2)
+            pool = SCOPE_LINES[scope]["neutral"] + (SCOPE_LINES[scope]["blocked"] if blocking else [])
+            scope_line = self.fill(self.phrase(pool), s2)
             if scope_line:
                 lines.append(scope_line)
-            lines.append(self.fill(self.phrase(BLOCKING_LINES if blocking else WORKAROUND_LINES), s))
+            lines.append(self.fill(self.phrase(BLOCKING_LINES if blocking else intent.get("wk", WORKAROUND_LINES)), s))
         extra = self.fill(self.phrase(intent["more"]), s)
         if extra:
             lines.append(extra)
         cat = intent["cat"]
         return {"intent": intent["code"], "category": cat, "kind": intent["kind"], "scope": scope, "blocking": blocking,
                 "team": gold_team(cat, cust["plan"], sso=intent.get("sso", False), dispute=intent.get("dispute", False)),
-                "priority": gold_priority(intent["kind"], scope, blocking, cust["plan"]),
+                "priority": gold_priority(intent["kind"], scope, blocking, cust["plan"], core=intent.get("core", True)),
                 "subject": self.fill(self.phrase(intent["subj"]), s), "lines": lines}
 
     # -------------------------------------------------------------- noise

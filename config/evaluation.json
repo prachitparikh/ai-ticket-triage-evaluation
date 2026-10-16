@@ -1,0 +1,5 @@
+{
+  "final_prompt": "triage_v3",
+  "models": ["claude-haiku-5-5", "claude-sonnet-5-5"],
+  "note": "Scores use results/llm/<model>/<split>_<final_prompt>_responses.jsonl. Earlier dev rounds are kept beside them as dev_round<N>_... files and described in docs/06."
+}

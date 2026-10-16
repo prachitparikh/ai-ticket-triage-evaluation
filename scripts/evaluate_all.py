@@ -16,6 +16,7 @@ that exists, and writes:
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -23,7 +24,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from triage import DATA, RESULTS  # noqa: E402
+from triage import CONFIG, DATA, RESULTS  # noqa: E402
 from triage.evaluate import (calibration, confusion, llm_predictions, merged, run_facts, scores,  # noqa: E402
                              threshold_table, write_json)
 from triage.llm import load_predictions  # noqa: E402
@@ -35,17 +36,36 @@ HEADLINE = ["category_accuracy", "team_accuracy", "priority_accuracy", "all_thre
             "false_urgency_priority_right", "understated_p1_right"]
 
 
+SETTINGS = json.loads((CONFIG / "evaluation.json").read_text(encoding="utf-8"))
+PROMPT = SETTINGS["final_prompt"]
+
+
+def consistency(first: list[dict], repeat: list[dict]) -> dict:
+    """Same tickets sent twice: how often all three decisions came back the same."""
+    a = {r["ticket_id"]: r.get("output") for r in first if r["status"] == "ok"}
+    b = {r["ticket_id"]: r.get("output") for r in repeat if r["status"] == "ok"}
+    both = sorted(set(a) & set(b))
+    same = [t for t in both if all(a[t][k] == b[t][k] for k in ("category", "team", "priority"))]
+    return {"tickets_compared": len(both), "same_all_three": len(same),
+            "same_rate": round(len(same) / len(both), 4) if both else None,
+            "changed": [t for t in both if t not in same]}
+
+
 def methods(split: str) -> dict[str, pd.DataFrame]:
     out = {}
     for name in ("rules", "ml"):
         f = RESULTS / name / f"{split}_predictions.csv"
         if f.exists():
             out[name] = pd.read_csv(f, keep_default_na=False, na_values=[""])
-    for f in sorted((RESULTS / "llm").glob(f"*/{split}_responses.jsonl")):
+    for f in sorted((RESULTS / "llm").glob(f"*/{split}_{PROMPT}_responses.jsonl")):
         records = load_predictions(f)
         model = f.parent.name
         out[f"llm_{model}"] = llm_predictions(records)
-        write_json(f.parent / f"{split}_run_facts.json", run_facts(records))
+        facts = run_facts(records)
+        repeat = f.with_name(f"{split}_{PROMPT}_repeat_responses.jsonl")
+        if repeat.exists():
+            facts["repeat_consistency"] = consistency(records, load_predictions(repeat))
+        write_json(f.parent / f"{split}_{PROMPT}_run_facts.json", facts)
     return out
 
 
@@ -59,7 +79,9 @@ def main() -> None:
         gold = pd.read_csv(DATA / "eval" / file, keep_default_na=False)
         rows = []
         for name, pred in methods(split).items():
-            df = merged(gold, pred)
+            # an LLM run on part of a split (the dev checks) is scored on the tickets it was sent
+            sent = gold[gold["ticket_id"].isin(pred["ticket_id"])] if name.startswith("llm_") else gold
+            df = merged(sent, pred)
             s = scores(df)
             write_json(RESULTS / "scores" / f"{name}__{split}.json", s)
             rows.append({"method": name, "tickets": s["tickets"], "answered": s["answered"], **{k: s[k] for k in HEADLINE}})

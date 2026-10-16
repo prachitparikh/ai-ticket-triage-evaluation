@@ -46,19 +46,21 @@ def gold_team(category: str, plan: str, sso: bool = False, dispute: bool = False
     return default_team(category)
 
 
-def gold_priority(kind: str, scope: str = "user", blocking: bool = False, plan: str = "Starter") -> str:
+def gold_priority(kind: str, scope: str = "user", blocking: bool = False, plan: str = "Starter", core: bool = True) -> str:
     """Priority from what the ticket says.
 
     kind      what sort of problem it is (see the generator's intent table)
     scope     'user' (one person), 'team' (a group of users), 'account' (everyone at the customer)
     blocking  True when the ticket says they cannot work and has no workaround
+    core      False for a problem in a side feature (notifications, a report, the mobile app). Even with
+              everyone blocked, that is not "cannot use the product or a core part of it", so it stops at P2.
     """
     enterprise_blocked = plan == "Enterprise" and blocking
     if kind in ("security_incident", "data_loss"):
         return "P1"
     if kind in ("outage", "defect", "access"):
         if scope == "account" and blocking:
-            return "P1"
+            return "P1" if core else "P2"
         if (scope == "team" and blocking) or enterprise_blocked:
             return "P2"
         return "P3"

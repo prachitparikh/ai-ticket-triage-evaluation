@@ -1,0 +1,5 @@
+gold_priority,tickets,met_target,median_first_response_min,misrouted,rated_lower_by_rules
+P1,518,0.1100,349.7500,0.5502,0.8147
+P2,1948,0.2464,290.3000,0.2885,0.5508
+P3,4888,0.7220,279.6000,0.2224,0.0702
+P4,1572,0.8200,702.9500,0.3155,0.0000

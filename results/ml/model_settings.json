@@ -2,8 +2,8 @@
   "trained_on": "data/history/tickets_2026_04_09.csv (closed-ticket labels)",
   "training_tickets": 8926,
   "regularisation_C_chosen_on_dev": {
-    "category": 0.1,
-    "team": 0.03,
+    "category": 0.03,
+    "team": 0.05,
     "priority": 0.03
   },
   "features": "TF-IDF word 1-2 grams + character 3-5 grams, plan as a token",
