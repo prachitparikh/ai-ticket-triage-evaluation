@@ -1,6 +1,6 @@
 # Northstar support triage: should a model route our tickets?
 
-[![tests](https://github.com/prachitqwer/ai-ticket-triage-evaluation/actions/workflows/tests.yml/badge.svg)](https://github.com/prachitqwer/ai-ticket-triage-evaluation/actions/workflows/tests.yml)
+[![tests](https://github.com/prachitparikh/ai-ticket-triage-evaluation/actions/workflows/tests.yml/badge.svg)](https://github.com/prachitparikh/ai-ticket-triage-evaluation/actions/workflows/tests.yml)
 ![Python 3.13](https://img.shields.io/badge/python-3.13-1F3A5F)
 ![Licence: MIT](https://img.shields.io/badge/licence-MIT-1F3A5F)
 
@@ -116,7 +116,7 @@ The model only sees the plan, the channel, the subject and the body, with email 
 Needs Python 3.13. Nothing below calls the API: the Claude responses are stored in `results/llm/`.
 
 ```bash
-git clone https://github.com/prachitqwer/ai-ticket-triage-evaluation.git
+git clone https://github.com/prachitparikh/ai-ticket-triage-evaluation.git
 cd ai-ticket-triage-evaluation
 python -m pip install -r requirements.txt
 
