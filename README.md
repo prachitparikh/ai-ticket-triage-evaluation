@@ -23,6 +23,8 @@ On 500 held-out test tickets:
   <img alt="On 500 test tickets: right team 65% rules, 76% in-house model, 99.8% Haiku, 100% Sonnet. P1 rated P1: 34%, 18%, 97%, 97%. Security reports sent to Trust: 36%, 68%, 100%, 100%." src="docs/images/comparison.png" width="860">
 </picture>
 
+**Live dashboard:** [AI ticket triage evaluation on Tableau Public](https://public.tableau.com/app/profile/prachit.parikh/viz/AITicketTriageEvaluationRulesvsMLvsClaudePrachitParikh/AITicketTriageEvaluation). The eight acceptance criteria, the headline measures, where every test ticket was routed and the monthly cost of each option, built from the files in `results/`. Its cost chart is the as-measured view; plan on the cautious one in [docs/01](docs/01_business_case.md).
+
 **The catch.** The tickets are generated from the same labeling guide the prompt contains, so these are ceiling numbers. The recommendation is a four-week shadow pilot on real tickets, with gates, before anything is routed without a person.
 
 ## At a glance
